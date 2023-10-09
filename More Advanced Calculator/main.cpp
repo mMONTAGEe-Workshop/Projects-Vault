@@ -3,9 +3,9 @@
 using namespace std;
 
 int main() {
-    float x;
-    float y;
-    float sum;
+    double x;
+    double y;
+    double sum;
     char sym;
 
     // Отобразить сообщение с просьбой ввести оператор или 0 для выхода.
