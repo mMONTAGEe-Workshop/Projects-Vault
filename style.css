@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@700&display=swap');
 #zibil {
     font-family: Arial, sans-serif;
     background-color: #1f1f1f;
@@ -9,7 +11,10 @@
 
 #title {
     font-family: Arial, sans-serif;
+    font-size: 41px;
+    align-content: center;
     margin: 0;
+    margin-top: 40px;
     padding: 10px;
     text-align: center;
     position: absolute;
@@ -18,6 +23,7 @@
     transform: translateX(-50%);
     background-color: #1f1f1f;
     color: #ffffff;
+    font-family: 'Sulphur Point', sans-serif;
 }
 #image {
     display: inline;
@@ -33,35 +39,39 @@
 }
 
 .folder-btn {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    display: inline-block;
+    background: transparent;
+    color: white;
+    border: 0.5px solid #ccc;
+    border-radius: 0px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .folder-btn:hover {
-    background-color: #e0e0e0;
+    background: transparent;
+    color: #15f705;
+    border-color: #15f705;
+    text-decoration: none;
 }
 
 .folder-content {
+    margin-right: 100px;
+    margin-left: 100px;
     display: none;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /*border: 1px solid #ccc;
+    border-radius: 35px;
+    border-bottom-width: 5px;*/
     margin-top: 5px;
 }
 
-#p{
-    color:white;
-}
 
 #h1 {
-    font-size: 80px;
-    text-decoration: underline;
+    font-size: 75px;
+    /*text-decoration: underline;*/
     margin-bottom: 20px;
     color: white;
+    font-family: 'Sulphur Point', sans-serif;
 }
 
 ul {
@@ -69,38 +79,61 @@ ul {
     padding: 0;
 }
 
-li {
+.li {
+    list-style-type: armenian;
     margin-bottom: 10px;
+    margin-left: 600px;
+    margin-right: 600px;
+    background: transparent;
+    color: #15f705;
+    border-color: #15f705;
     
 }
 
 
-a {
-    text-decoration: none;
+.a {
+    font-family: 'Sulphur Point', sans-serif;
+    font-family: 'Noto Serif Armenian', serif;
+    text-decoration: blink;
     padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     display: inline-block;
+    background: transparent;
+    color: white;
+    border: 0.5px solid #ccc;
+    border-radius: 0px;
+    cursor: pointer;
 }
 
 a:hover {
-    background-color: #e0e0e0;
+    background: transparent;
+    color: #15f705;
+    border-color: #15f705;
 }
 
 a:active {
-    background-color: #d0d0d0;
+    background: transparent;
+    color: #15f705;
+    border-color: #15f705;
+    background-color: #15f705;
 }
 
 
 
 .whiteH2{ 
     color: #ffffff;
+    font-family: 'Noto Serif Armenian', serif;
 }
 
 
-.whiteP{ 
+.whiteP{
+    font-family: 'Sulphur Point', sans-serif;
     color: #ffffff;
+    /*text-decoration: underline;*/
+    /*border: 1px solid #ccc;*/
+    /*text-decoration: underline;*/
+    margin-right: 600px;
+    margin-left: 600px;
+
 }
 
 #hr{
