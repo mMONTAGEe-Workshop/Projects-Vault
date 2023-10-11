@@ -1,3 +1,0 @@
-C:\Users\david\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f CMakeFiles\temporary_workplace.dir/objects.a
-C:\Users\david\AppData\Local\Programs\CLion\bin\mingw\bin\ar.exe qc CMakeFiles\temporary_workplace.dir/objects.a @CMakeFiles\temporary_workplace.dir\objects1.rsp
-C:\Users\david\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\temporary_workplace.dir/objects.a -Wl,--no-whole-archive -o temporary_workplace.exe -Wl,--out-implib,libtemporary_workplace.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\temporary_workplace.dir\linkLibs.rsp

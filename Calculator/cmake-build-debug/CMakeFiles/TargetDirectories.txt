@@ -1,3 +1,0 @@
-C:/Users/david/Documents/Chraxyan/Calculator/cmake-build-debug/CMakeFiles/temporary_workplace.dir
-C:/Users/david/Documents/Chraxyan/Calculator/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/david/Documents/Chraxyan/Calculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
