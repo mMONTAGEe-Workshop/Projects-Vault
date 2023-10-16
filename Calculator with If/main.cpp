@@ -3,58 +3,50 @@
 using namespace std;
 
 int main() {
-    double x,y;
-    double sum;
-    char sym;
+    double x, y;
+    char operation;                 // раздел операторов
 
-    do {
-        cout << "Insert |+| |-| |*| |/| 0 exit " << endl;
-        cin >> sym;
-        if (sym == '0') {
-            break;
+    while (true) {                                  // Начало
+        cout << "Enter two numbers (X and Y): ";
+        cin >> x >> y;
+
+        cout << "Choose an operation (+, -, *, /) or 'E' to exit: ";
+        cin >> operation;
+
+        if (operation == 'E' || operation == 'e') {    			|| -> OR
+            break; // Выход, если пользователь вводит «E» или «e»
         }
 
-        switch (sym) {
-            case '+':
-                cout << "|+| Insert Number X and Y"<<endl;
-                cin >> x;
-                cin >> y;
-                sum = x + y;
-                cout << "sum = " << sum << endl;
-                break;
-
-            case '-':
-                cout << "|-| Insert Number X and Y" << endl;
-                cin >> x;
-                cin >> y;
-
-                if(y > x){
-                    cout<<"X must be greater than Y, or else result will be negative"<<endl;
-                }
-                else{
-                    sum = x - y;
-                    cout<< "sum = "<< sum <<endl;
-                }
-                break;
-            case '*':
-                cout << "|*| Insert Number X and Y" << endl;
-                cin >> x;
-                cin >> y;
-                sum = x * y;
-                cout << "sum = " << sum << endl;
-                break;
-
-            case '/':
-                cout << "|/| Insert Number X and Y" << endl;
-                cin >> x;
-                cin >> y;
-                sum = x / y;
-                cout << "sum = " << sum << endl;
-                break;
+        double result;
+        // начало проверки блока IF, идет с первого по четвертый else if и последний else по умолчанию неизвестен
+        if (operation == '+') {
+            result = x + y;
+        }
+        else if (operation == '-') {
+            double temp = x;                // переключение, чтобы не было отрицательных значений
+            x = y;
+            y = temp;
+            result = x - y;
+        }
+        else if (operation == '*') {
+            result = x * y;
+        }
+        else if (operation == '/') {
+            if (y != 0) {
+                result = x / y;
+            } else {
+                cout << "Division by zero is not allowed." << endl;
+                continue; // Перезапускаем цикл, если деление на ноль
+            }
+        }
+        else {
+            cout << "Unknown operator. Please enter +, -, *, /, or 'E' to exit." << endl;
         }
 
-    }while(true);
+        cout << "Result: " << result << endl;
+    }                               // конец цикла while
+
     return 0;
 }
 
-// Part of Chraxyan Practice Work Github Archive.
+// Part of College Archive Github Repository
