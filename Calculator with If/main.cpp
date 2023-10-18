@@ -13,7 +13,7 @@ int main() {
         cout << "Choose an operation (+, -, *, /) or 'E' to exit: ";
         cin >> operation;
 
-        if (operation == 'E' || operation == 'e') {    			|| -> OR
+        if (operation == 'E' || operation == 'e') {  
             break; // Выход, если пользователь вводит «E» или «e»
         }
 
