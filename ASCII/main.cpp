@@ -6,13 +6,13 @@ int main() {
     char code;
     int x = 0;
 
-    cout << "Please Insert Character or Type '*' to reveal ASCII and break program" << endl;
+    cout << "Please Insert Character or Type '*' to break program" << endl;
 
     while (true) {
+        cin >> code;
         if (code == '*') {
             break;
         } else{
-            cin>>code;
             x = code;
             cout<<"ASCII = "<<x<<endl;
         }
