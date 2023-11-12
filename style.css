@@ -141,6 +141,17 @@ a:active {
     color:white;
 }
 
+.thanks{
+    position: fixed;
+    bottom: 0px;
+    left: 12px;
+    color: #b8bab9;
+    text-decoration: underline;
+    opacity: 50%;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .source{
     position: fixed;
     bottom: 10px;
