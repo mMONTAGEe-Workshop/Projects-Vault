@@ -31,10 +31,10 @@ int main() {
             result = bajanac(num1, num2);
             break;
         default:
-            cout << "Ho du debil ches??" << endl;
+            cout << "Invalid Operator" << endl;
             return 1;
     }
-    cout<<result<<endl;
+    cout<<"Result = "<<result<<endl;
 }
 
 double gumarum(double x, double y){
