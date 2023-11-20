@@ -1,3 +1,0 @@
-C:/Users/david/Documents/Chraxyan/cmake-build-debug/CMakeFiles/Chraxyan.dir
-C:/Users/david/Documents/Chraxyan/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/david/Documents/Chraxyan/cmake-build-debug/CMakeFiles/rebuild_cache.dir
