@@ -1,0 +1,3 @@
+C:/Users/david/Documents/ASCII Falsifier/cmake-build-debug/CMakeFiles/ASCII_Falsifier.dir
+C:/Users/david/Documents/ASCII Falsifier/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/david/Documents/ASCII Falsifier/cmake-build-debug/CMakeFiles/rebuild_cache.dir
