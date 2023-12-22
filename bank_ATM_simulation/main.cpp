@@ -11,10 +11,15 @@ using namespace std;
 
 
 int withStatement (int WD, const int Array[]);
+string encryptDecrypt(string toEncrypt);
+void welcomeMessage(string name);
+void choosewithdrawAmount();
+void messageApproved();
+void messageRejected();
 void printRecipe (string ATMID, string ATMNAME, int transactID, string cardNumber, string name, string expirationDate, int withdrawalAmount, bool approval);
 void printTransFile (string ATMID, string ATMNAME, int transactID, string cardNumber, string name, string expirationDate, ofstream& transactFile, int cardID, const int pincode);
 
-int main() {
+int main(int argc, const char * argv[]) {
     // Simulated Credit Card
     string name = "Nikol Pashinyan";
     int cardID = rand() % 100 + 10;
@@ -42,14 +47,8 @@ int main() {
 
     // =================================================================================================================
 
-    //  user asked to input PIN,
-    cout << "Welcome!" << " " << name << endl;
-    cout << "Please wait while we process your request." << endl;
-    this_thread::sleep_for(chrono::seconds(4));
-    cout<< " " << endl;
-    cout<< "PLEASE ENTER YOUR PIN" << endl;
-    cout<< "PRESS ENTER TO CONTINUE" << endl;
-
+    //  Welcome message, user asked to input PIN.
+    welcomeMessage(name);
 
     // Pincode checkpoint, will ask user for pin code until input pincode will match constant pincode on simulated credit card
     do {
@@ -71,24 +70,17 @@ int main() {
     cout<<" "<<endl;
 
     // Withdrawal Procedure, User chooses amount, ATM checks pin, ATM stores chosen withdrawal amount
-    cout << "PLEASE CHOOSE WITHDRAWAL AMOUNT" << endl;
-    cout<<" "<<endl;
-    cout << setw(20) << "1. 1,000,000 $" << endl;
-    cout << setw(20) << "2. 1,500,000 $" << endl;
-    cout << setw(20) << "3. 2,000,000 $" << endl;
-    cout << setw(20) << "4. 2,500,000 $" << endl;
-    cout << setw(20) << "5. 3,000,000 $" << endl;
-    cout << setw(20) << "6. 3,500,000 $" << endl;
+    choosewithdrawAmount();
 
     // Choice checkpoint, will ask user to choose again if user inputs number number less than 1 or higher than 6 (which shouldnt happen with real ATMs with buttons)
     do {
 
-    cout << " > ";
-    cin >> chosenWD;
+        cout << " > ";
+        cin >> chosenWD;
 
-    if(chosenWD < 1 || chosenWD > 6){
-        cerr<<"Invalid Input, Please try again"<<endl;
-    }
+        if(chosenWD < 1 || chosenWD > 6){
+            cerr<<"Invalid Input, Please try again"<<endl;
+        }
 
     } while(chosenWD < 1 || chosenWD > 6);
     withdrawalAmount = withStatement(chosenWD, wdArray);
@@ -102,15 +94,10 @@ int main() {
     // Withdrawal check, if it doesnt exceed the balance one have
     if (withdrawalAmount <= balance) {
         this_thread::sleep_for(chrono::seconds(1));
-        cout<< "YOUR TRANSACTION IS APPROVED" << endl;
-        cout<< "DISPENSING YOUR CASH NOW" << endl;
-        cout<< " " << endl;
-        cout<< "THANK YOU FOR BANKING WITH US!" << endl;
+        messageApproved();
         approved = true;
     } else {
-        cerr<< "YOUR TRANSACTION IS DECLINED" << endl;
-        cout<< " " << endl;
-        cout<< "THANK YOU FOR BANKING WITH US!" << endl;
+        messageRejected();
         approved = false;
     }
 
@@ -125,20 +112,48 @@ int main() {
     return 0;
 }
 
-
+void welcomeMessage(string name){
+    cout << "Welcome!" << " " << name << endl;
+    cout << "Please wait while we process your request." << endl;
+    this_thread::sleep_for(chrono::seconds(4));
+    cout<< " " << endl;
+    cout<< "PLEASE ENTER YOUR PIN" << endl;
+    cout<< "PRESS ENTER TO CONTINUE" << endl;
+}
+void choosewithdrawAmount(){
+    cout << "PLEASE CHOOSE WITHDRAWAL AMOUNT" << endl;
+    cout<<" "<<endl;
+    cout << setw(20) << "1. 1,000,000 $" << endl;
+    cout << setw(20) << "2. 1,500,000 $" << endl;
+    cout << setw(20) << "3. 2,000,000 $" << endl;
+    cout << setw(20) << "4. 2,500,000 $" << endl;
+    cout << setw(20) << "5. 3,000,000 $" << endl;
+    cout << setw(20) << "6. 3,500,000 $" << endl;
+}
+void messageApproved(){
+    cout<< "YOUR TRANSACTION IS APPROVED" << endl;
+    cout<< "DISPENSING YOUR CASH NOW" << endl;
+    cout<< " " << endl;
+    cout<< "THANK YOU FOR BANKING WITH US!" << endl;
+}
+void messageRejected(){
+    cerr<< "YOUR TRANSACTION IS DECLINED" << endl;
+    cout<< " " << endl;
+    cout<< "THANK YOU FOR BANKING WITH US!" << endl;
+}
 int withStatement (int WD, const int Array[]){
     int withdrawalAmount = 0;
-    if( WD == '1'){
+    if( WD == 1){
         withdrawalAmount = Array[0];
-    } else if (WD == '2'){
+    } else if (WD == 2){
         withdrawalAmount = Array[1];
-    } else if (WD == '3'){
+    } else if (WD == 3){
         withdrawalAmount = Array[2];
-    } else if (WD == '4'){
+    } else if (WD == 4){
         withdrawalAmount = Array[3];
-    } else if (WD == '5'){
+    } else if (WD == 5){
         withdrawalAmount = Array[4];
-    } else if (WD == '6'){
+    } else if (WD == 6){
         withdrawalAmount = Array[5];
     }
 
@@ -149,12 +164,15 @@ void printRecipe (string ATMID, string ATMNAME, int transactID, string cardNumbe
     curr_time = time(NULL);
     char *tm = ctime(&curr_time);
 
+    string encryptedName = encryptDecrypt(name);
+    string decryptedName = encryptDecrypt(encryptedName);
+
     cout<<"Current Time: "<< tm <<endl;
     cout<<"ATM ID: "<< ATMID <<endl;
     cout<<" "<<endl;
     cout<<"ATM NAME: "<< ATMNAME <<endl;
     cout<<" "<<endl;
-    cout<<"User Name: "<< name <<endl;
+    cout<<"User Name: "<< decryptedName <<endl;
     cout<<" "<<endl;
     cout<<"Card Number: "<< cardNumber <<endl;
     cout<<" "<<endl;
@@ -172,8 +190,10 @@ void printTransFile (string ATMID, string ATMNAME, int transactID, string cardNu
     curr_time = time(NULL);
     char *tm = ctime(&curr_time);
 
+    string encryptedName = encryptDecrypt(name);
+
     transactFile << "Time: " << tm << "\n";
-    transactFile << "Name: " << name << "\n";
+    transactFile << "Name: " << encryptedName << "\n";
     transactFile << "Card ID: " << cardID << "\n";
     transactFile << "Card Number: " << cardNumber << "\n";
     transactFile << "Card Pin Code: " << pincode << "\n";
@@ -182,4 +202,14 @@ void printTransFile (string ATMID, string ATMNAME, int transactID, string cardNu
     transactFile << "ATM ID: " << ATMID << "\n";
     transactFile << "ATM NAME: " << ATMNAME << "\n";
     transactFile << "TRANSACTION ID: " << transactID << "\n";
+}
+
+string encryptDecrypt(string toEncrypt){
+    char key = 'K';
+    string output = toEncrypt;
+
+    for (int i = 0; i < toEncrypt.size(); i++)
+        output[i] = toEncrypt[i] ^ key;
+
+    return output;
 }
