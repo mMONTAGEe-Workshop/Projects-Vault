@@ -1,0 +1,10 @@
+Time: Wed Dec 20 19:31:26 2023
+
+Name: Nikol Pashinyan
+Card ID: 51
+Card Number: 1654
+Card Pin Code: 1985
+Expiration Date: 12/12/2025
+ATM ID: 5375
+ATM NAME: AliyevBank-J6
+TRANSACTION ID: 8567
