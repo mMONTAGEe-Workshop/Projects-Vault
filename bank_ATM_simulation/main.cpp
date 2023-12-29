@@ -160,8 +160,8 @@ int main(int argc, const char * argv[]) {
             continue;
         }
     } else if (chosenService == 3){
-        cout<<"OUR CUSTOMER SUPPORT SERVICE IS CURRENTLY UNAVAILABLE, PLEASE RETURN LATER!"<<endl;
-        this_thread::sleep_for(chrono::seconds(3));
+        cout<<"PLEASE CONTACT US BY THE NUMBER +3741234567"<<endl;
+        cout<<"OUR CUSTOMER SUPPORT WILL ANSWER YOUR PROBLEMS!"<<endl;
         continue;
     } else if (chosenService == 4){
         break;
