@@ -15,6 +15,7 @@ int encryptDecryptInt(int value, int key);
 string encryptDecryptString(const string &text, char key);
 int withStatement(int WD, const int Array[]);
 void welcomeMessage(string name);
+void chooseService();
 void choosewithdrawAmount();
 void messageApproved();
 void messageRejected();
@@ -30,6 +31,8 @@ int main(int argc, const char * argv[]) {
     int balance = 2756896;
     int finalBalance;
     const int pinValue = 1985;
+    int chosenService;
+    int depositAmount;
 
     //ATM
     string ATMID = "5375";
@@ -52,14 +55,28 @@ int main(int argc, const char * argv[]) {
 
     //  Welcome message, user asked to input PIN.
     welcomeMessage(name);
+    while (true){
+    chooseService();
 
-    // Pincode checkpoint, will ask user for pin code until input pincode will match constant pincode on simulated credit card
     do {
+        cout << " > ";
+        cin >> chosenService;
+
+        if (chosenService < 1 || chosenService > 4) {
+            cerr << "INVALID INPUT, PLEASE TRY AGAIN" << endl;
+        }
+
+    } while (chosenService < 1 || chosenService > 4);
+
+    if (chosenService == 1){
+    do {
+        cout<< " " <<endl;
+        cout<<"PLEASE INPUT YOUR PIN CODE"<<endl;
         cout << " > ";
         cin >> pincode;
 
         if (pincode != pinValue) {
-            cerr << "Unable Verify Pin Code, Please Try Again" << endl;
+            cerr << "UNABLE VERIFY PIN CODE, PLEASE TRY AGAIN" << endl;
         }
 
     } while (pincode != pinValue);
@@ -72,6 +89,7 @@ int main(int argc, const char * argv[]) {
 
     // Withdrawal Procedure, User chooses amount, ATM checks pin, ATM stores chosen withdrawal amount
     choosewithdrawAmount();
+    cout<<" "<<endl;
 
     // Choice checkpoint, will ask user to choose again if user inputs number less than 1 or higher than 6 (which shouldnt happen with real ATMs with buttons)
     do {
@@ -79,7 +97,7 @@ int main(int argc, const char * argv[]) {
         cin >> chosenWD;
 
         if (chosenWD < 1 || chosenWD > 6) {
-            cerr << "Invalid Input, Please try again" << endl;
+            cerr << "INVALID INPUT, PLEASE TRY AGAIN" << endl;
         }
 
     } while (chosenWD < 1 || chosenWD > 6);
@@ -95,7 +113,9 @@ int main(int argc, const char * argv[]) {
     // Withdrawal check, if it doesn't exceed the balance one have
     if (withdrawalAmount <= balance) {
         this_thread::sleep_for(chrono::seconds(1));
+        finalBalance = balance - withdrawalAmount;
         messageApproved();
+        cout<<"YOUR FINAL BALANCE IS: "<<finalBalance<<endl;
         approved = true;
     } else {
         messageRejected();
@@ -110,7 +130,44 @@ int main(int argc, const char * argv[]) {
     // encrypted content from file which is read gets decrypted for the recepient
     printRecipe(ATMID, ATMNAME, transactID, cardNumber, name, expirationDate, withdrawalAmount, approved);
 
-    return 0;
+    continue;
+    } else if (chosenService == 2) {
+        do {
+            cout << "PLEASE INPUT YOUR PIN CODE" << endl;
+            cout << " > ";
+            cin >> pincode;
+            cout<< " " <<endl;
+
+            if (pincode != pinValue) {
+                cerr << "UNABLE VERIFY PIN CODE, PLEASE TRY AGAIN" << endl;
+            }
+
+        } while (pincode != pinValue);
+
+        cout << "PLEASE INPUT AMOUNT YOU WISH TO DEPOSIT" << endl;
+        cout<<" > ";
+        cin >> depositAmount;
+
+        // Check if the deposit amount is positive
+        if (depositAmount >= 0) {
+            finalBalance = balance + depositAmount;
+            cout << "YOUR FINAL BALANCE IS: " << finalBalance << endl;
+            cout<< " " <<endl;
+            cout<< "THANK YOU FOR BANKING WITH US"<<endl;
+            continue;
+        } else {
+            cerr << "INVALID DEPOSIT AMOUNT. PLEASE ENTER A NON-NEGATIVE AMOUNT." << endl;
+            continue;
+        }
+    } else if (chosenService == 3){
+        cout<<"OUR CUSTOMER SUPPORT SERVICE IS CURRENTLY UNAVAILABLE, PLEASE RETURN LATER!"<<endl;
+        this_thread::sleep_for(chrono::seconds(3));
+        continue;
+    } else if (chosenService == 4){
+        break;
+    }
+
+    }
 }
 
 int encryptDecryptInt(int value, int key) {
@@ -130,8 +187,19 @@ void welcomeMessage(string name) {
     cout << "Please wait while we process your request." << endl;
     this_thread::sleep_for(chrono::seconds(4));
     cout << " " << endl;
-    cout << "PLEASE ENTER YOUR PIN" << endl;
+    cout << "PLEASE CHOOSE A SERVICE" << endl;
     cout << "PRESS ENTER TO CONTINUE" << endl;
+    cout<< " " <<endl;
+}
+
+void chooseService(){
+    cout<< " " <<endl;
+    cout<<"<=====[SERVICES]=====>"<<endl;
+    cout<< " " <<endl;
+    cout<<"1. WITHDRAW"<<endl;
+    cout<<"2. DEPOSIT"<<endl;
+    cout<<"3. CONTACT BANK"<<endl;
+    cout<<"4. EXIT"<<endl;
 }
 
 void choosewithdrawAmount() {
