@@ -131,6 +131,7 @@ int main(int argc, const char * argv[]) {
     printRecipe(ATMID, ATMNAME, transactID, cardNumber, name, expirationDate, withdrawalAmount, approved);
 
     continue;
+    // second option, if user chosen deposit
     } else if (chosenService == 2) {
         do {
             cout << "PLEASE INPUT YOUR PIN CODE" << endl;
@@ -159,10 +160,12 @@ int main(int argc, const char * argv[]) {
             cerr << "INVALID DEPOSIT AMOUNT. PLEASE ENTER A NON-NEGATIVE AMOUNT." << endl;
             continue;
         }
+        // third option, if user chose to contact bank.
     } else if (chosenService == 3){
         cout<<"PLEASE CONTACT US BY THE NUMBER +3741234567"<<endl;
         cout<<"OUR CUSTOMER SUPPORT WILL ANSWER YOUR PROBLEMS!"<<endl;
         continue;
+        // cancel option, return credit card etc etc
     } else if (chosenService == 4){
         break;
     }
@@ -170,6 +173,8 @@ int main(int argc, const char * argv[]) {
     }
 }
 
+
+// Functions
 int encryptDecryptInt(int value, int key) {
     return value ^ key;
 }
@@ -199,7 +204,7 @@ void chooseService(){
     cout<<"1. WITHDRAW"<<endl;
     cout<<"2. DEPOSIT"<<endl;
     cout<<"3. CONTACT BANK"<<endl;
-    cout<<"4. EXIT"<<endl;
+    cout<<"4. CANCEL"<<endl;
 }
 
 void choosewithdrawAmount() {
