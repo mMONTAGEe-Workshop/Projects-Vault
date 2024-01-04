@@ -1,3 +1,0 @@
-C:/Users/david/Documents/bank_ATM_simulation/cmake-build-debug/CMakeFiles/bank_robbery.dir
-C:/Users/david/Documents/bank_ATM_simulation/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/david/Documents/bank_ATM_simulation/cmake-build-debug/CMakeFiles/rebuild_cache.dir
