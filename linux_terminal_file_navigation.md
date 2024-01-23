@@ -11,9 +11,11 @@ On Windows we are used to navigating file systems through GUI (explorer.exe) whi
 3. ls - List, Used to reveal content of current folder. In Kali there also color code for the content of the folder depending on the permissions the content has. _adding -la to ls gives ability to reveal hidden folders_
 4. mkdir - Make Directory, Self explanatory name.
 5. rmdir - Remove Directory, Self explanatory name.
-6. echo "x" > text.txt - echo is used to create text containing files with prewrote information in them, _("x") in > text.txt file_
+6. echo "x" > text.txt - echo is used to create text containing files with prewrote information in them, _("x") in > text.txt file_, To append something and not overwrite already existing information, we use _>>_ not _>_
 7. cp - cp is used to move something to different directory, for example `cp text.txt Downloads/` _this will move text.txt to Downloads directory_
 8. rm - Remove, used to remove something from a directory, f.e _`rm Downloads/text.txt`_
 9. mv - Move, used to move something to different directory, f.e `mv text.txt Downloads/`
+10. cat - prints out what text is in text file, `cat text.txt`
+11. nano - Terminal Text Editor, `nano text.txt`, this will show new screen in terminal where you can edit, add, delete t=information containing inside the text file. **_gedit_** will open graphical text editor
 
 Please remember everything in Linux is case sensitive.
