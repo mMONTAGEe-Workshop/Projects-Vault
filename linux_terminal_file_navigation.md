@@ -19,4 +19,5 @@ On Windows we are used to navigating file systems through GUI (explorer.exe) whi
 11. nano - Terminal Text Editor, `nano text.txt`, this will show new screen in terminal where you can edit, add, delete t=information containing inside the text file. **_gedit_** will open graphical text editor
 
 Please remember everything in Linux is case sensitive.
-**And Please never ever use  `sudo rm -rf /*` command**
+
+**And never ever use  `sudo rm -rf /*` command**
