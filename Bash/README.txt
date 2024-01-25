@@ -1,4 +1,4 @@
-Bash and Python scripts are created by Pranat Dayal copied from https://github.com/pranatdayal/pentesting-scripts
+Bash scripts are created by Pranat Dayal copied from https://github.com/pranatdayal/pentesting-scripts
 
 
 DNSforward.sh:
