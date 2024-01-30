@@ -8,10 +8,14 @@
 _Passive: f.e Going to Google and searching for somebody_
 
 _Active: f.e We use tools like NMAP and scana ctively against the target, open ports, vulnerabilities etc._
+
 2. Scanning & Enumerating (Nmap, Nessus, Nikto etc)
+
 3. Gaining Access ("Exploiting")
-4. Maintaining Access
-5. Covering Tracks
+ 
+5. Maintaining Access
+ 
+7. Covering Tracks
 
 
 ### Passive Recon overview
